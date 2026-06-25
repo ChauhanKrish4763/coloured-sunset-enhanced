@@ -1,0 +1,5 @@
+# packaged extension — goes in GitHub Releases, not the repo
+*.vsix
+
+# Node
+node_modules/

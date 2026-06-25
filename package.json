@@ -1,0 +1,44 @@
+{
+	"name": "colored-desert-enhanced",
+	"displayName": "Colored Desert Enhanced",
+	"description": "An enhanced fork of DevAnorak's Colored Desert — fully audited workbench colors, modern VS Code token support, improved contrast, and a cleaner terminal palette. The original desert soul, polished.",
+	"publisher": "Krish-Chauhan",
+	"version": "0.0.15",
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.86.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"license": "MIT",
+	"scripts": {
+		"package": "npx @vscode/vsce package --no-dependencies",
+		"install-theme": "node install.js"
+	},
+	"bin": {
+		"colored-desert-enhanced": "./install.js"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Colored Desert Enhanced",
+				"uiTheme": "vs",
+				"path": "./themes/colored-desert.json",
+				"semanticHighlighting": true
+			},
+			{
+				"label": "Colored Desert Dark Enhanced",
+				"uiTheme": "vs-dark",
+				"path": "./themes/colored-desert-dark.json",
+				"semanticHighlighting": false
+			},
+			{
+				"label": "Colored Desert Pastel Enhanced",
+				"uiTheme": "vs",
+				"path": "./themes/colored-desert-pastel.json",
+				"semanticHighlighting": false
+			}
+		]
+	}
+}
