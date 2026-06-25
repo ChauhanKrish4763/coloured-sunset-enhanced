@@ -13,7 +13,7 @@
 	],
 	"license": "MIT",
 	"scripts": {
-		"package": "npx @vscode/vsce package --no-dependencies",
+		"package": "npx @vscode/vsce package --no-dependencies --allow-missing-repository",
 		"install-theme": "node install.js"
 	},
 	"bin": {

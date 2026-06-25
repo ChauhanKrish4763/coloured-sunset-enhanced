@@ -1,95 +1,93 @@
 # Colored Desert Enhanced
 
-An enhanced fork of **Colored Desert** by DevAnorak (MIT licensed).
-Original palette, original syntax highlighting, original vibe —
-with a complete workbench audit, modern VS Code token coverage, and a cleaner terminal palette.
+I've been using **Colored Desert** by DevAnorak for a while — it's a warm, desert-toned VS Code theme with a vibe I haven't found anywhere else. But it had rough edges: invisible text in a few spots, neon colours leaking into neutral UI areas, dark panels sitting inside an otherwise all-light theme, terminal colours with broken alpha values. Small things, but they added up over time.
+
+So I started tweaking. Then I kept tweaking. At some point it stopped being a few quick patches and became a full workbench audit — 400+ colour tokens audited or added across all three theme variants (light, dark, pastel). Bracket pair guides, inlay hints, the command palette, the testing panel, diff gutters, symbol icons — everything. It's genuinely my main VS Code theme now, and this is the version I actually use daily.
+
+Original theme by DevAnorak. I just fixed it a lot.
 
 ---
 
-## Install from a GitHub Release
+## Install
 
-1. Go to the **Releases** page of this repo
+### Download from GitHub Releases (easiest)
+
+1. Go to the **Releases** tab of this repo on GitHub
 2. Download the `.vsix` file from the latest release
-3. Open VS Code
-4. `Ctrl+Shift+P` → **Extensions: Install from VSIX…**
-5. Pick the downloaded file
-6. `Ctrl+Shift+P` → **Preferences: Color Theme** → **Colored Desert Enhanced**
+3. Open VS Code → `Ctrl+Shift+P` → **Extensions: Install from VSIX…**
+4. Pick the downloaded file
+5. `Ctrl+Shift+P` → **Preferences: Color Theme** → pick a variant
 
----
+### Build and install yourself
 
-## Build and install it yourself
-
-You need [Node.js](https://nodejs.org) (any LTS version) and VS Code with `code` in your PATH.
+You need [Node.js](https://nodejs.org) (any LTS) and VS Code with `code` in your PATH.
 
 ```bash
-# clone the repo
 git clone https://github.com/Krish-Chauhan/colored-desert-enhanced
 cd colored-desert-enhanced
-
-# package it into a .vsix
 npm run package
-
-# install it directly into VS Code
 node install.js
 ```
 
-`npm run package` calls `@vscode/vsce` — it will download automatically via `npx`, no global install needed.
-
-The packaged file will be named `colored-desert-enhanced-<version>.vsix`.
+`npm run package` downloads `@vscode/vsce` automatically via `npx` — no global install needed.
 
 ---
 
 ## Make changes and redeploy
 
-All theme color work lives in two files:
+All theme work lives in three files:
 
 | File | What it controls |
 |------|-----------------|
-| `themes/colored-desert.json` | The main light theme (workbench + syntax) |
+| `themes/colored-desert.json` | Light variant |
 | `themes/colored-desert-dark.json` | Dark variant |
 | `themes/colored-desert-pastel.json` | Pastel variant |
 
-**Workflow:**
+**Live preview workflow:**
 
-1. Edit `themes/colored-desert.json` in VS Code
-2. Press `F5` — this opens an **Extension Development Host** window with your theme live
-3. Change the theme in the dev window: `Ctrl+Shift+P` → **Preferences: Color Theme**
-4. Every time you save the file, reload the dev window (`Ctrl+R`) to see updates
-5. When you are happy, bump the version in `package.json`
-6. Run `npm run package` to build the new `.vsix`
+1. Open the repo folder in VS Code
+2. Press `F5` — this opens an **Extension Development Host** window with your changes live
+3. In the dev window: `Ctrl+Shift+P` → **Preferences: Color Theme** → pick a variant
+4. Edit a theme JSON and save → `Ctrl+R` in the dev window to reload
 
-**Releasing on GitHub:**
+**Release a new version:**
 
-1. Commit all your changes and push to GitHub
-2. Go to your repo → **Releases** → **Draft a new release**
-3. Create a tag matching the version (e.g. `v0.0.16`)
-4. Attach the `.vsix` file to the release
-5. Publish
-
-Anyone who wants the theme downloads the `.vsix` from Releases and installs it as described above.
+1. Bump the `"version"` field in `package.json`
+2. Run `npm run package` — this creates `colored-desert-enhanced-<version>.vsix`
+3. Commit and push your changes
+4. On GitHub: **Releases** → **Draft a new release**
+5. Create a tag matching the version (e.g. `v0.0.16`)
+6. Drag the `.vsix` file into the release assets
+7. Publish — anyone can now download it directly from the Releases tab
 
 ---
 
-## Color palette reference
+## Theme variants
+
+| Variant | Base | Feel |
+|---------|------|------|
+| Colored Desert Enhanced | Light `#f1e4bb` | Warm sand, the classic |
+| Colored Desert Dark Enhanced | Dark `#504945` | Same warmth, dark room |
+| Colored Desert Pastel Enhanced | Light `#f3ecce` | Softer, cooler pastels |
+
+---
+
+## Color palette (light variant)
 
 | Role | Hex |
 |------|-----|
 | Background | `#f1e4bb` |
-| Sidebar / panels | `#f1e4bb` |
-| Active sidebar row | `#e0d3ad` |
-| Section headers | `#d3c6a3` |
-| Main dark text | `#4b4b4b` |
+| Main text | `#4b4b4b` |
 | Teal (variables) | `#29baba` |
 | Orange (types) | `#ff8300` |
 | Blue (functions) | `#0093ff` |
 | Green (operators) | `#0cbe20` |
 | Pink (keywords) | `#ff2fc1` |
-| Dark amber (constants) | `#903701` |
-| Red (strings) | `#ff0000` at ~67% opacity |
+| Amber (constants) | `#903701` |
 
 ---
 
 ## Credits
 
-Original theme by **DevAnorak**. Licensed under MIT.
+Original theme by **DevAnorak** — MIT licensed.  
 Extended and maintained by **Krish Chauhan**.
